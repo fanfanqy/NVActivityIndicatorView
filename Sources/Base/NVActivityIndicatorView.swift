@@ -370,6 +370,8 @@ public final class NVActivityIndicatorView: UIView {
 
     /// Default padding. Default value is 0.
     public static var DEFAULT_PADDING: CGFloat = 0
+    
+    public static var DEFAULT_AnimationDuration: CGFloat = 1.5
 
     /// Default size of activity indicator view in UI blocker. Default value is 60x60.
     public static var DEFAULT_BLOCKER_SIZE = CGSize(width: 60, height: 60)
@@ -438,6 +440,9 @@ public final class NVActivityIndicatorView: UIView {
 
     /// Padding of activity indicator view.
     @IBInspectable public var padding: CGFloat = NVActivityIndicatorView.DEFAULT_PADDING
+    
+    /// Padding of activity indicator view.
+    @IBInspectable public var duration: CGFloat = NVActivityIndicatorView.DEFAULT_AnimationDuration
 
     /// Current status of animation, read-only.
     @available(*, deprecated)
@@ -472,10 +477,11 @@ public final class NVActivityIndicatorView: UIView {
 
      - returns: The activity indicator view.
      */
-    public init(frame: CGRect, type: NVActivityIndicatorType? = nil, color: UIColor? = nil, padding: CGFloat? = nil) {
+    public init(frame: CGRect, type: NVActivityIndicatorType? = nil, color: UIColor? = nil, padding: CGFloat? = nil, duration: CGFloat? = 0) {
         self.type = type ?? NVActivityIndicatorView.DEFAULT_TYPE
         self.color = color ?? NVActivityIndicatorView.DEFAULT_COLOR
         self.padding = padding ?? NVActivityIndicatorView.DEFAULT_PADDING
+        self.duration = duration ?? NVActivityIndicatorView.DEFAULT_AnimationDuration
         super.init(frame: frame)
         isHidden = true
     }
@@ -553,7 +559,7 @@ public final class NVActivityIndicatorView: UIView {
 
         layer.sublayers = nil
         animationRect.size = CGSize(width: minEdge, height: minEdge)
-        animation.setUpAnimation(in: layer, size: animationRect.size, color: color)
+        animation.setUpAnimation(in: layer, size: animationRect.size, color: color, duration: duration)
     }
 }
 #endif

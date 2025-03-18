@@ -30,7 +30,7 @@ import UIKit
 
 class NVActivityIndicatorAnimationBallScaleRippleMultiple: NVActivityIndicatorAnimationDelegate {
 
-    func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
+    func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor, duration: Double) {
         let duration: CFTimeInterval = 1.25
         let beginTime = CACurrentMediaTime()
         let beginTimes = [0, 0.2, 0.4]
