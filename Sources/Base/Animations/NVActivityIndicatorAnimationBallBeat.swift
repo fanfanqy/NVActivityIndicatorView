@@ -37,7 +37,7 @@ class NVActivityIndicatorAnimationBallBeat: NVActivityIndicatorAnimationDelegate
         let y = (layer.bounds.size.height - circleSize) / 2
         let duration: CFTimeInterval = duration
         let beginTime = CACurrentMediaTime()
-        let beginTimes = [0.35, 0, 0.35]
+        let beginTimes = [0, 0.4, 0.8]
 
         // Scale animation
         let scaleAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
@@ -78,3 +78,4 @@ class NVActivityIndicatorAnimationBallBeat: NVActivityIndicatorAnimationDelegate
     }
 }
 #endif
+
